@@ -1,10 +1,11 @@
 <%-- 
     Document   : search
-    Created on : Sep 26, 2020, 12:53:55 PM
+    Created on : Sep 28, 2020, 2:33:58 PM
     Author     : potte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,10 @@
         <title>Search</title>
     </head>
     <body>
+        <a href="" style="color: red">Back</a><br>
+        <font style="color: red">
+        Welcome, <s:property value="username"/>
+        </font>
         <h1>Search Page</h1>
     </body>
 </html>

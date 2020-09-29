@@ -6,12 +6,14 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default" namespace="/">
         <action name="">
-            <result>login.html</result>
+            <result>index.jsp</result>
         </action>
         <action name="login" class="sample.struts2.LoginAction">
             <result name="success">search.jsp</result>
             <result name="fail" type="redirect">invalid.html</result>
         </action>
+        <action name="books" class="sample.struts2.ShowBooksAction">
+            <result>books.jsp</result>
+        </action>
     </package>
-    
 </struts>

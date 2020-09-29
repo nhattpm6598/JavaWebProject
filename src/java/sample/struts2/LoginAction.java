@@ -21,16 +21,19 @@ public class LoginAction {
     }
     
     public String execute() throws Exception {
+        
         RegistrationDAO dao = new RegistrationDAO();
         boolean result = dao.checkLogin(username, password);
-        System.out.println("LoginAction");
         System.out.println(result);
         String url = FAIL;
-        if (result==true){
+        if(result){
+            //Map session = ActionContext.getContext().getSession();
+            //session.put("USER", username);
+            
             url = SUCCESS;
         }
-        System.out.println(url);
-        return url; 
+        
+        return url;
     }
 
     /**

@@ -10,10 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
+import sample.db.DBconnection;
 
 /**
  *
@@ -21,30 +19,36 @@ import javax.sql.DataSource;
  */
 public class RegistrationDAO implements Serializable{
     
+    
+    
+    //check Login
+    String checkLoginSQL = "SELECT ROLE FROM DimAccount WHERE AccountName = ? AND Password = ? AND AccountStatus = 1";
+    //
     public boolean checkLogin(String username, String password){
+        boolean result = false;
         try{
-            Context ctx = new InitialContext();
-            Context envCtx = (Context)ctx.lookup("java:comp/env");
-            DataSource ds = (DataSource)envCtx.lookup("LibraryManagement");
-            Connection con = ds.getConnection();
+            Connection con = DBconnection.makeConnection();
             
-            String sql = "select AccountName, Role from DimAccount Where AccountName = ? and Password = ? and AccountStatus = 1";
+            String sql = checkLoginSQL;
+            
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
+            
             ResultSet rs = stm.executeQuery();
-            boolean result = rs.next();
-            rs.close();
-            stm.close();
-            con.close();
-            if(result){
-                return true;
+            
+            if(rs.next()){
+                result = true;
             }
-        }catch(NamingException e){
-            System.out.println("RegistrationDAO_CheckLogin_NamingException : "+ e.getMessage());
-        }catch(SQLException e){
-            System.out.println("RegistrationDAO_CheckLogin_SQLExceptions : "+ e.getMessage());
+            
+            rs.close();stm.close();con.close();
+            
+        }catch(SQLException ex){
+            System.out.println("RegistrationDAO_checkLogin_SQLException: "+ex.getMessage());
+        }catch(NamingException ex){
+            System.out.println("RegistrationDAO_checkLogin_NamingException: "+ex.getMessage());
         }
-        return false;
+        return result;
     }
+    
 }
