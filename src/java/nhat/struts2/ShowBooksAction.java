@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sample.struts2;
+package nhat.struts2;
 
 import java.util.List;
-import sample.dao.ShowBookCateDAO;
-import sample.dto.BookCateDTO;
+import nhat.dao.ShowBookCateDAO;
+import service.dto.BookCateDTO;
 
 /**
  *

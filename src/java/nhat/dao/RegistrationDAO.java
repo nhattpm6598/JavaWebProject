@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sample.dao;
+package nhat.dao;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.naming.NamingException;
-import sample.db.DBconnection;
+import service.db.DBconnection;
 
 /**
  *

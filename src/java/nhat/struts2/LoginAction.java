@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sample.struts2;
+package nhat.struts2;
 
-import sample.dao.RegistrationDAO;
+import nhat.dao.RegistrationDAO;
 
 /**
  *

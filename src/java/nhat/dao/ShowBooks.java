@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sample.dao;
+package nhat.dao;
 
 import java.io.Serializable;
-import sample.dto.BookDTO;
+import service.dto.BookDTO;
 
 /**
  *
